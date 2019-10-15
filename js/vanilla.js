@@ -1,6 +1,7 @@
 'use strict';
 
 let mainContainer = document.getElementById("mainContainer");
+mainContainer.classList.add('clearfix');
 let containerImg =  document.createElement("div");
 containerImg.id = "containerImg";
 containerImg.classList.add("clearfix");
@@ -19,7 +20,7 @@ let imgString = '[{"name":"bryan-minear","path":"img\/bryan-minear-VmMHIRRgQpY-u
     
 
 
-   
+
     
 function addImg(imgObject){
 
@@ -38,6 +39,7 @@ function createImg(listeImg){
         let imgTag = document.createElement('img');
         imgTag.setAttribute("src", listeImg[i].path);
         imgTag.setAttribute("alt", listeImg[i].name);
+        imgTag.setAttribute("class", "clearfix");
         containerImg.appendChild(imgTag); 
     }
 }
@@ -47,9 +49,4 @@ function addImgObj(imObj){
     tabImgObj.push(imgObjt);
 }
 
- console.log(typeof JSON.stringify(imgObjt));
- console.log(typeof JSON.parse(imgString));
-
-
-
-console.log(JSON.stringify(img));
+addImg(imgObjt);

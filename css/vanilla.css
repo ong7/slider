@@ -1,5 +1,39 @@
 body{
-    width: 90%;
+    width:80%;
     margin: 0 auto;
+    text-align: center;
     background-color: #f2f2f2;
 }
+
+#mainContainer{
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    border: 3px solid #BA0A4B;
+}
+
+#containerImg{
+    
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+
+}
+
+img {
+
+    width: 100%;
+    height:580px;
+
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    content: ".";    
+    display: block;    
+    height: 0;    
+    overflow: hidden;        
+  }
+  .clearfix:after { clear: both; }
+  .clearfix { zoom: 1 ;} /* IE < 8 */
