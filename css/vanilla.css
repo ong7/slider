@@ -10,6 +10,7 @@ body{
 }
 
 #mainContainer{
+    position: relative;
     padding: 0%;
     margin: 0 auto;
     width: 50%;
@@ -23,10 +24,12 @@ body{
 
 #arrow{
     display: flex;
+    position: absolute;
     justify-content: space-between;
     align-content: center;
     width: 100%;
     height: auto;
+    top: 50%;
 }
 a{
     font-size: 10rem;
@@ -38,6 +41,12 @@ a{
     color: rgb(255, 255, 255);
     
 }
+
+a:hover{
+    background-color: rgba(0, 0, 0, 0.24);
+    box-shadow: 10px 12px 64px -3px rgba(0,0,0,0.75);
+}
+
 img {
     margin: 0% auto;
     width: 100%;
