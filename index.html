@@ -3,8 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Gallerie image avec JQUERY</title>
-</head>
-<body>
+    <style>
+        div{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            align-content: stretch;
+            width: 80%;
+            margin: 0% auto;
+            height: auto;
+            background-color: rgb(90, 30, 53);
+            
+        }
+        div > a{
+            
+            font-size: 10rem;
+            color: grey;
+            top: 50%;
+        }
 
+        /* .avant, .apres {
+            font-size: 10rem;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: gray;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        } */
+    </style>
+</head>
+
+<body>
+    <div>
+        <a href="#" class="avant">&#x2039;</a>
+        <a href="#" class="apres">&#x203A;</a>
+    </div>
 </body>
 </html>

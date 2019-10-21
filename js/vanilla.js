@@ -2,10 +2,7 @@
 
 let mainContainer = document.getElementById("mainContainer");
 mainContainer.classList.add('clearfix');
-let containerImg =  document.createElement("div");
-containerImg.id = "containerImg";
-containerImg.classList.add("clearfix");
-mainContainer.appendChild(containerImg);
+var positionZero = 1;
 
 
 let imgObjt = [ {name:"bryan-minear", path: "img\/bryan-minear-VmMHIRRgQpY-unsplash.jpg"}, 
@@ -36,6 +33,9 @@ function addImg(imgObject){
 
 function createImg(listeImg){
     for(let i = 0; i < listeImg.length; i++){
+        let containerImg =  document.createElement("div");
+        containerImg.classList = "containerImg";
+        mainContainer.appendChild(containerImg);
         let imgTag = document.createElement('img');
         imgTag.setAttribute("src", listeImg[i].path);
         imgTag.setAttribute("alt", listeImg[i].name);
@@ -50,3 +50,38 @@ function addImgObj(imObj){
 }
 
 addImg(imgObjt);
+
+let left = document.querySelector(".apres");
+let right = document.querySelector(".avant");
+
+let showSlides = function(n) {
+    var i;
+    var slides = document.getElementsByClassName("containerImg");
+    
+    if (n > slides.length) {
+        positionZero = 1
+    }
+    if (n < 1) {
+        positionZero = slides.length
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    slides[positionZero-1].style.display = "block";
+    
+  } 
+
+showSlides(positionZero);
+
+
+let next = function () {
+  showSlides(positionZero += 1);
+}
+
+let previous = function(){
+    showSlides(positionZero = positionZero - 1);
+}
+
+left.addEventListener('click', next);
+right.addEventListener('click', previous);
