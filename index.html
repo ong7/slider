@@ -5,6 +5,18 @@
     <title>Gallerie image avec JQUERY</title>
     <link rel="stylesheet" href="css/vanilla.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+
+        h1{
+            position: absolute;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+            left: 25%;
+            
+        }
+    </style>
 
 </head>
 
@@ -30,6 +42,7 @@
                                             {name:"pawel-nolbert", path: "img\/pawel-nolbert-4u2U8EO9OzY-unsplash.jpg"},
                                             {name:"sutirta-budiman", path: "img\/sutirta-budiman-kjOBqwMUnWw-unsplash.jpg"}]
                    
+                   $("#mainContainer").append($("<h1>").append("slide with Jquery").attr({"class":"title"}));
                 function createImg(listeImg){
                     let mainContainer = $("#mainContainer");
                     for(let i = 0; i < listeImg.length; i++){
@@ -58,7 +71,7 @@
             let showSlides = function(n) {
                 let i = null;
                 const slides = document.getElementsByClassName("containerImg");
-                 console.log(slides);
+
                  console.log($(".containerImg"));
                 if (n > slides.length) {
                     positionZero = 1;
