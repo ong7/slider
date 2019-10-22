@@ -12,7 +12,7 @@
     <div ng-controller="mainController">
         <h1>{{title}}</h1>
         <div ng-controller="childController">
-            <h2>{{title}}</h2>
+            <h2 ng-bind="title"></h2>
             <h3>{{$parent.title}}</h3>
         </div>
     </div>
