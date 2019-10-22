@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 body{
-    width:80%;
+    width:90%;
     height: auto;
     margin: 0 auto;
     background-color: #f2f2f2;
@@ -43,7 +43,6 @@ a{
 }
 
 a:hover{
-    background-color: rgba(0, 0, 0, 0.24);
     box-shadow: 10px 12px 64px -3px rgba(0,0,0,0.75);
 }
 
@@ -54,7 +53,7 @@ img {
   }
 
 .containerImg{
-      display: none;
+      /* display: none; */
   }
 
 

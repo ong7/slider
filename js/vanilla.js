@@ -16,8 +16,6 @@ const imgObjt = [ {name:"bryan-minear", path: "img\/bryan-minear-VmMHIRRgQpY-uns
 const imgString = '[{"name":"bryan-minear","path":"img\/bryan-minear-VmMHIRRgQpY-unsplash.jpg"},{"name":"eva-blue","path":"img\/eva-blue-SfPOkp6-2eA-unsplash.jpg"},{"name":"finding-dan-dan-grinwis","path":"img\/finding-dan-dan-grinwis-O35rT6OytRo-unsplash.jpg"},{"name":"harshil-gudka","path":"img\/harshil-gudka-ORcQipPJAy4-unsplash.jpg"},{"name":"max-bender","path":"img\/max-bender-VmX3vmBecFE-unsplash.jpg"},{"name":"paul-fiedler","path":"img\/paul-fiedler-q1QPK60bv1g-unsplash.jpg"},{"name":"pawel-nolbert","path":"img\/pawel-nolbert-4u2U8EO9OzY-unsplash.jpg"},{"name":"sutirta-budiman","path":"img\/sutirta-budiman-kjOBqwMUnWw-unsplash.jpg"}]'
     
 
-
-
     
 function addImg(imgObject){
 
@@ -35,11 +33,13 @@ function createImg(listeImg){
     for(let i = 0; i < listeImg.length; i++){
         let containerImg =  document.createElement("div");
         containerImg.classList = "containerImg";
+        
         mainContainer.appendChild(containerImg);
         let imgTag = document.createElement('img');
         imgTag.setAttribute("src", listeImg[i].path);
         imgTag.setAttribute("alt", listeImg[i].name);
         imgTag.setAttribute("class", "clearfix");
+    
         containerImg.appendChild(imgTag); 
     }
 }
@@ -84,7 +84,7 @@ const next = function () {
 }
 
 const previous = function(){
-    showSlides(positionZero -= 1);
+    showSlides(positionZero = - 1);
 }
 
 right.addEventListener('click', next);
