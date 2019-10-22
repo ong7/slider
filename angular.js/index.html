@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <title>AngularJS</title>
 </head>
-<body>
+<body ng-app="app">
     
+    <div ng-controller="mainController">
+        <h1>{{title}}</h1>
+        <div ng-controller="childController">
+            <h2>{{title}}</h2>
+            <h3>{{$parent.title}}</h3>
+        </div>
+    </div>
+
+    <script>
+        var myApp = angular.module("app", []);
+        function mainController($scope){
+            $scope.title = "Slider AngularJS";
+        }
+
+        function childController($scope){
+            $scope.title = "Scope enfant";
+        }
+        myApp.controller("mainController", mainController)
+             .controller("childController", childController);
+        
+    </script>
 </body>
 </html>
