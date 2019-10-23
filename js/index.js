@@ -10,7 +10,7 @@
                                             {name:"pawel-nolbert", path: "img\/pawel-nolbert-4u2U8EO9OzY-unsplash.jpg"},
                                             {name:"sutirta-budiman", path: "img\/sutirta-budiman-kjOBqwMUnWw-unsplash.jpg"}]
                    
-                   $("#mainContainer").append($("<h1>").append("slide with Jquery").attr({"class":"title"}));
+                $("#mainContainer").append($("<h1>").append("slide with Jquery").attr({"class":"title"}));
                 function createImg(listeImg){
                     let mainContainer = $("#mainContainer");
                     for(let i = 0; i < listeImg.length; i++){
@@ -25,39 +25,6 @@
             }
 
             function addImg(imgObject){
-
-                if(typeof imgObject === 'object'){
-                    createImg(imgObject);
-                }
-                else if(typeof imgObject === 'string'){
-                    let imgParse = JSON.parse(imgObject);
-                    createImg(imgParse);
-                }
-
-            }
-
-            let showSlides = function(n) {
-                let i = null;
-                const slides = document.getElementsByClassName("containerImg");
-
-                 console.log($(".containerImg"));
-                if (n > slides.length) {
-                    positionZero = 1;
-                
-                }
-                if (n > slides.length) {
-                    positionZero = 1;
-                
-                }
-                else if (n < 1) {
-                    positionZero = slides.length;
-                
-                }
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-
-                slides[positionZero-1].style.display = "block";
                 
             } 
             addImg(imgObjt);
