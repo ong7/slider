@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Slider jquery</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
     <style>	
 
             *{
@@ -27,17 +28,17 @@
             }
 
            .slider{
-            position:relative;
-            margin: 0% auto;
-            width:50%;
-            overflow:hidden;
-            height: auto;
+                position:relative;
+                margin: 0% auto;
+                max-width: 50%;
+                overflow:hidden;
+                height: auto;
+                margin-top: 2%;
             }
             
-            img{
-                width: 100%;
-                height: auto;
-                
+            img{  
+                min-width: 100%;
+                max-height: 900px;
             }
 
             .slider ul{
@@ -51,10 +52,10 @@
                 background:rgb(189, 44, 44);
             }
 
-            
+          
            
 /* Boutton gauche et droit */
-            .control{
+            .control:not(.autoplay){
                     position: absolute;
                     top: 50%;
                     z-index: 999;
@@ -69,7 +70,19 @@
                     font-size: 1.3rem;
                     cursor: pointer;
                     background-color: red;
-                    opacity: 0.7;
+                    opacity: 0.3;
+            }
+
+            .number{
+                    display: inline-block;
+                    padding: 1% 3%;
+                    background: #2a2a2a;
+                    color: #fff;
+                    text-decoration: none;
+                    cursor: pointer;
+                    background-color: red;
+                    border: none;
+                   
             }
 
             .next:hover, .prev:hover{
@@ -86,7 +99,10 @@
             .next{
                 right:0px;
             }
-
+         
+            .blue{
+                display: none;
+            }
 
     </style>
 </head>
@@ -95,13 +111,22 @@
 
                 <a href="#" class="next control">Right</a>
                 <a href="#" class="prev control">Left</a>
-                
-              
+                <a href="#" class="autoplay control">autoplay</a>
+                <button class="number">1</button> 
+                <button class="number">2</button> 
+                <button class="number">3</button> 
+                <button class="number">4</button> 
+                <button class="number">5</button> 
+                <button class="number">6</button> 
+                <button class="number">7</button> 
+                <button class="number">8</button> 
+                <button class="stop">Stop</button>
               </div>
           <script>
           $(function() {
 
             let positionZero = 1;
+            let myIndex = 0;
             const imgObjt = [ {name:"bryan-minear", path: "\/img\/bryan-minear-VmMHIRRgQpY-unsplash.jpg"}, 
                                             {name:"eva-blue", path: "\/img\/eva-blue-SfPOkp6-2eA-unsplash.jpg"},
                                             {name:"finding-dan-dan-grinwis", path: "\/img\/finding-dan-dan-grinwis-O35rT6OytRo-unsplash.jpg"},
@@ -109,7 +134,7 @@
                                             {name:"max-bender", path: "\/img\/max-bender-VmX3vmBecFE-unsplash.jpg"},
                                             {name:"paul-fiedler", path: "\/img\/paul-fiedler-q1QPK60bv1g-unsplash.jpg"},
                                             {name:"pawel-nolbert", path: "\/img\/pawel-nolbert-4u2U8EO9OzY-unsplash.jpg"},
-                                            {name:"sutirta-budiman", path: "\/img\/sutirta-budiman-kjOBqwMUnWw-unsplash.jpg"}]
+                                            {name:"sutirta-budiman", path: "\/img\/sutirta-budiman-kjOBqwMUnWw-unsplash.jpg"}];
                    
                
                 function createImg(listeImg){
@@ -132,36 +157,63 @@
              
                     
                  
-
+  
                     
                     let showSlides = function(n) {
                             let i = null;
+                            let temp = null;
                             const slides =  $(".listImg");
-                            
+                            const dots = $(".number");
                             if (n > slides.length) {
                                 positionZero = 1;
                             
                             }
                             else if (n < 1) {
                                 positionZero = slides.length;
-                            
                             }
+
                             for (i = 0; i < slides.length; i++) {
                                 slides[i].style.display = "none";
+                              
                             }
                             slides[positionZero-1].style.display = "block";
+
+                      
                 } 
 
                     showSlides(positionZero);
+
                     function moveLeft() {
-                        showSlides(positionZero = - 1);
+                       showSlides(positionZero -=1);
                     }
                     
                     function moveRight() {
                         showSlides(positionZero += 1);  
                     }
                     
-                    
+                   
+                    function moveTo(n) {
+                       showSlides(positionZero = n);
+                       
+                    }
+
+                    function stop(n){
+                        showSlides(n);
+                    }
+                 
+                    function autoplay() {         
+                            let play = $(".listImg");
+                            for (let i = 0; i < play.length; i++) {
+                                play[i].style.display = "none";  
+                            }
+                            myIndex++;
+                            if (myIndex > play.length) {
+                                myIndex = 1
+                            }    
+                            play[myIndex-1].style.display = "block";  
+                            setTimeout(autoplay, 3000); 
+                    }
+
                     $(".next").on("click",function(){
                         moveRight();
                     });
@@ -169,9 +221,21 @@
                     $(".prev").on("click",function(){
                         moveLeft();
                     });
-                    
-                    
+
+                    $(".autoplay").on("click", function(){
+                        autoplay();
                     });
+
+                    $(".stop").on("click", function(){
+                        showSlides($(".number").stop);
+                    });
+                    
+                    
+                    
+                    $(".number").on("click", function(){                  
+                        moveTo($(this).text());
+                    });
+            });
           </script>    
 </body>
 </html>
