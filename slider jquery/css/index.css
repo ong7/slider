@@ -1,0 +1,168 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul,ol{
+	list-style: none;
+}
+
+body{
+	font-family: "Open sans";
+}
+
+.slideshow{
+	width: 100vw;
+	position: relative;
+	min-width: 272px;
+}
+
+.slider li, ul{
+	width: 100%;
+}
+
+.slider li{
+	overflow: hidden;
+}
+
+.slider li img{
+	width: 100%;
+}
+
+.slider .caption{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	padding: 15px 50px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	text-align: center;
+	color: #fff;
+	z-index: 1;
+}
+
+.slider .caption h1{
+	font-size: 50px;
+}
+
+.slider .caption p{
+	margin-top: 10px;
+	font-size: 20px;
+}
+
+.pagination{
+	position: absolute;
+	top: 102%;
+	width: 100%;
+
+	display: flex;
+	justify-content: center;
+}
+
+.pagination li{
+	font-size: 20px;
+	margin: 2px 5px;
+	color: #858585;
+	cursor: pointer;
+}
+
+.left, .right{
+	position: absolute;
+	top: 0;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+
+	color: #fff;
+	font-size: 35px;
+	cursor: pointer;
+	z-index: 2;
+
+	
+}
+
+.left{
+	left: 10px;
+}
+
+.right{
+	right: 10px;
+}
+
+span[class$="-right"], span[class*="-left"]{
+	height: 70px;
+	width: 70px;
+	background: #e74c3c;
+	color:#FFF;
+	font-size: 1em;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	border: solid 6px #C68335;
+
+	padding-top: 0.3em;
+	border-radius: 50%;
+
+	/*la premiere propieté va transitioner en 2s et la deuxieme en 1s */
+	
+	transition-duration: 2s, 1s;
+	/*la propriété transition peut prendre plusieurs valeurs dans cette exemple
+	la transition est appliqué à border-radius et border-color */
+	transition-property: border-radius, border-color;
+	/*la premiere propriété border-radius transitionne en ease-in-out et la seconde border-color en linear */
+	transition-timing-function: ease-in-out, linear;
+	/*la premiere propriété va transitionner 0s et la seconde en 2s*/
+	transition-delay: 0s, 2s;
+	opacity: 0.7;
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.35);
+	
+}
+
+span[class*="-left"]{
+	padding-right: 0.2em;
+}
+
+span[class$="-right"]:hover, span[class*="-left"]:hover{
+	border-radius: 15px;
+	border-color: #c0392b;
+	opacity: 0.9;
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.55);
+}
+
+
+@media screen and (max-width: 600px){
+
+	.slider .caption p{
+		display: none;
+	}
+
+	.slider .caption h1{
+		font-size: 35px;
+	}
+
+	.left, .right{
+		font-size: 30px;
+	}
+
+	.slider li img{
+		width: 600px;
+	}
+
+	.pagination{
+		display: none;
+	}
+
+	
+span[class$="-right"], span[class*="-left"]{
+
+	display: none;
+}
+}
